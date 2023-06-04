@@ -1,0 +1,41 @@
+import random
+
+# Sample vocabulary data
+vocabulary = {
+    "hello": "hola",
+    "goodbye": "adiós",
+    "thank you": "gracias",
+    "yes": "sí",
+    "no": "no"
+}
+
+# AI-powered language learning application
+def language_learning_app():
+    print("Welcome to the Language Learning App!")
+    print("You can ask me questions about vocabulary.")
+
+    while True:
+        user_input = input(">> ")
+        response = generate_response(user_input)
+        print(response)
+
+        if user_input.lower() == "exit":
+            break
+
+# AI response generation
+def generate_response(user_input):
+    # Check if the user input matches any vocabulary word
+    for word, translation in vocabulary.items():
+        if word.lower() in user_input.lower():
+            return f"The translation of '{word}' is '{translation}'."
+
+    # If no direct match is found, generate a random response
+    random_responses = [
+        "I'm sorry, I don't know that word.",
+        "I'm still learning, could you try another word?",
+        "Hmm, I'm not sure. Can you ask me something else?"
+    ]
+    return random.choice(random_responses)
+
+# Run the language learning application
+language_learning_app()
